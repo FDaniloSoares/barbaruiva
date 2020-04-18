@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">     
+        <link rel="stylesheet" href="../static/css/reset.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" >
+        <title>Barbearia Alura</title>
+    <style>
+            footer {
+                text-align: center;
+                background-image: url('../static/img/bg.jpg');
+                padding: 40px  0;
+            }
+    </style>
+    </head>
+    <body>
+        <header>
+            <div class="caixa">
+                <h1><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""></h1>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('produtos') }}">Produtos</a></li>
+                        <li><a href="{{ url_for('contatos') }}">Contatos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        {% block content %}{% endblock %}
+        <footer >
+            <img src="{{ url_for('static', filename='img/logo-branco.png') }}" alt="">  
+            <p class="copyright">&copy; Copyright Barbearia Alura - 2019</p>
+        </footer>      
+    </body>
+</html>
