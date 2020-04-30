@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 
 app.config.update(
-	DEBUG= True,
+	DEBUG= False,
 	#EMAIL SETTINGS
 	MAIL_SERVER= 'smtp.gmail.com',
 	MAIL_PORT= 465,
@@ -55,5 +55,5 @@ def contatos():
 	return render_template("Contatos.html", form=form)
 
 if __name__ == '__main__':
-	app.run(debug = True)
+	app.run(debug = False)
 
