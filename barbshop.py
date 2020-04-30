@@ -18,7 +18,7 @@ app.config.update(
 	MAIL_USE_TLS= False,
 	MAIL_USE_SSL= True,
 	MAIL_USERNAME= 'fdanilosoares.mail@gmail.com' ,
-	MAIL_PASSWORD= 'Azert123+'
+	MAIL_PASSWORD= '********'
 	)
 mail = Mail(app)
 

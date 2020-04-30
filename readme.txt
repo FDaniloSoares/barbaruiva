@@ -6,6 +6,7 @@ Flask 1.1.2
 O agendamento é feito por meio de envio de  para e-mail da 'loja'
 site funcional no endereço : 
 
+https://barbaruiva.herokuapp.com/
 
 Os Htmls utilizados foram adptados de um curso da Alura, todos os direitos reservados.
 
