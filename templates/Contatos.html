@@ -1,46 +1,62 @@
-{% extends "base.html" %}
-        {% block content %}
-        <main>
-            <form>
-                <label for="nomesobrenome">Nome e sobrenome</label>
-                <input class="input-padrao" type="text" id="nomesobrenome" required>
-
-                <label for="email">Email</label>
-                <input class="input-padrao" type="email" id="email" required placeholder="seuemail@dominio.com">
-
-                <label for="telefone">telefone</label>
-                <input class="input-padrao" type="tel" id="telefone" required placeholder="(XX) XXXXX-XXXX">
-
-                <label for="mensagem">Mensagem</label>
-                <textarea name="" id="" cols="50" rows="10" id="mensagem" class="input-padrao"></textarea>
+{% extends "base.html" %}    
+    {% block content %}
+    
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <h1>
+                        <li>{{ message[1] }}</li>
+                    </h1> 
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}   
+        <div class="divCenter">
+            <form action="" method="post" autocomplete="off" >
+                {{ form.csrf_token }}
+                <div class="input text" >
+                    {{ form.name.label }}{{ form.name(size=30) }}
+                    <p></p>
+                    <p></p>
+                    {{ form.email.label }}{{ form.email(size=30) }}
+                    <p></p>
+                    <p></p>
+                    {{ form.mobile_phone.label }}{{ form.mobile_phone(size=30) }}
+                    <p></p>
+                    <p></p>
+                    {{ form.mensagem.label }}{{ form.mensagem(cols="30", rows="5") }}
                 
-                <fieldset>
-                    <legend>Como prefere o nosso contato?</legend>
-                    <label for="radio-email">
-                        <input type="radio" name="contato" value="email" id="radio-email">Email
+                    <fieldset>
+                        <legend>Como prefere o nosso contato?</legend>
+                        <label for="radio-email">
+                            <input type="radio" name="contato" value="email" id="radio-email">Email
+                        </label>
+                        <label for="radio-telefone">
+                            <input type="radio" name="contato" value="telefone" id="radio-telefone">Telefone
+                        </label>
+                        <label for="radio-whatsapp">
+                            <input type="radio" name="contato" value="whatsapp" id="radio-whatsapp" checked>Whatsapp
+                        </label>
+                    </fieldset>
+    
+                    <fieldset>
+                        <legend>Qual hórario prefere ser atendido?</legend>
+                        <select>
+                            <option value="">Manhã</option>
+                            <option value="">Tarde</option>
+                            <option value="">Noite</option>
+                        </select>
+                    </fieldset>
+    
+                    <label for="checkbox" class="checkbox">
+                        <input type="checkbox" id="checkbox" checked>Gostaria de receber nossas novidades por email?
                     </label>
-                    <label for="radio-telefone">
-                        <input type="radio" name="contato" value="telefone" id="radio-telefone">Telefone
-                    </label>
-                    <label for="radio-whatsapp">
-                        <input type="radio" name="contato" value="whatsapp" id="radio-whatsapp" checked>Whatsapp
-                    </label>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Qual hórario prefere ser atendido?</legend>
-                    <select>
-                        <option value="">Manhã</option>
-                        <option value="">Tarde</option>
-                        <option value="">Noite</option>
-                    </select>
-                </fieldset>
-
-                <label for="checkbox" class="checkbox">
-                    <input type="checkbox" id="checkbox" checked>Gostaria de receber nossas novidades por email?
-                </label>
-
-                <input type="submit" value="Enviar formulário" class="enviar">
+                </div>
+                <div class="input submit">
+                    <input type="submit" value="Enviar" class="enviar">
+                </div>
             </form>
             <table>
                 <thead>
@@ -64,5 +80,6 @@
                     </tr>
                 </tbody>
             </table>
-        </main>
-        {% endblock %}
+        </div>
+    </main>   
+    {% endblock %}
